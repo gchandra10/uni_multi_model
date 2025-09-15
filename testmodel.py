@@ -1,8 +1,12 @@
-import requests, pandas as pd
-df = pd.DataFrame({"ENGINESIZE":[2.0,3.0,4.0]})
-r = requests.post(
-    "http://127.0.0.1:5009/invocations",
-    json={"inputs": {"columns": list(df.columns), "data": df.values.tolist()}},
-    timeout=10,
-)
-print(r.status_code, r.text)
+
+import pandas as pd
+import mlflow
+loaded = mlflow.sklearn.load_model("runs:/9fd4cc293dcf42be8cbbccd6e6181471/lr_model")
+X = pd.DataFrame({"ENGINESIZE": [3.5]})
+print(loaded.predict(X))
+
+
+# cols = ["ENGINESIZE","CYLINDERS","FUELCONSUMPTION_CITY",
+#         "FUELCONSUMPTION_HWY","FUELCONSUMPTION_COMB","FUELCONSUMPTION_COMB_MPG"]
+# X = pd.DataFrame([[3.5, 6, 12.1, 8.4, 10.4, 27.0]], columns=cols)
+# print(loaded.predict(X))

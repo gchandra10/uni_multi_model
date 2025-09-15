@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/ganesh.chandra/Documents/demos/codebase/uni_multi_model/mlruns/138623722757278916/9fd4cc293dcf42be8cbbccd6e6181471/artifacts
+end_time: 1757904363450
+entry_point_name: ''
+experiment_id: '138623722757278916'
+lifecycle_stage: active
+run_id: 9fd4cc293dcf42be8cbbccd6e6181471
+run_name: univariate
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757904362955
+status: 3
+tags: []
+user_id: ganesh.chandra

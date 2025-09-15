@@ -1,0 +1,10 @@
+artifact_location: file:///Users/ganesh.chandra/Documents/demos/codebase/uni_multi_model/mlruns/138623722757278916/models/m-ea6175ed1a5c4694982a414827770ef4/artifacts
+creation_timestamp: 1757904363075
+experiment_id: '138623722757278916'
+last_updated_timestamp: 1757904363423
+model_id: m-ea6175ed1a5c4694982a414827770ef4
+model_type: null
+name: lr_model
+source_run_id: 9fd4cc293dcf42be8cbbccd6e6181471
+status: 2
+status_message: null

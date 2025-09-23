@@ -1,7 +1,9 @@
 
 import pandas as pd
 import mlflow
-loaded = mlflow.sklearn.load_model("runs:/GET_RUNID_FROM_UI/model")
+mlflow.set_tracking_uri("http://127.0.0.1:8080")
+
+loaded = mlflow.sklearn.load_model("models:/Linear_Regression_Model/1")
 X = pd.DataFrame({"ENGINESIZE": [3.5]})
 print(loaded.predict(X))
 

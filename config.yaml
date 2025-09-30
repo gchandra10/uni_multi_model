@@ -1,0 +1,39 @@
+data:
+  url: "https://raw.githubusercontent.com/gchandra10/filestorage/main/FuelConsumptionCo2.csv"
+  features: ["FUELCONSUMPTION_COMB"]
+  target: "CO2EMISSIONS"
+  test_size: 0.2
+  random_state: 42
+
+mlflow:
+  tracking_uri: "http://localhost:8080"
+  experiment_name: "emission_demo"
+  model_name: "model"
+  registered_model: "Linear_Regression_Model"
+  tags:
+    version: "v1"
+    type: "lr models"
+    scope: "demo"
+
+model:
+  type: "LinearRegression"
+  params:
+    fit_intercept: true
+    positive: false
+
+requirements:
+  - "mlflow>=2.15.1,<4.0"
+  - "scikit-learn>=1.5,<1.8"
+  - "pandas>=2.2,<2.4"
+  - "numpy>=2.1,<2.4"
+
+plot:
+  filename: "pred_vs_actual.png"
+  title: "Linear Regression: Actual vs Predicted"
+  xlabel: "Actual CO2EMISSIONS"
+  ylabel: "Predicted CO2EMISSIONS"
+  diagonal: true
+
+preprocess:
+  imputer_num: "median"
+  scaler_num: "none"

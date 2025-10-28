@@ -1,9 +1,6 @@
 # UV - VSCode - Notebook
 
-## Use this Repo
-
-Fork > Clone to your local machine
-
+## Fork and Clone this repo
 
 ```
 cd uni_multi_model
@@ -14,7 +11,7 @@ uv sync
 
 ```
 mlflow server --host 127.0.0.1 --port 8080 \
---backend-store-uri sqlite:///mlflow.db
+--backend-store-uri sqlite:///mlflow.db 
 ```
 
 **Run the Model**
@@ -29,9 +26,9 @@ uv run python 01-lr-model.py
 uv run python 03_load_test_model.py
 ```
 
-**Note:**
+## Model Serving
 
-**Serve the Model**
+**Option 1: Using mlflow models serve**
 
 ```
 
@@ -62,10 +59,23 @@ curl -X POST http://127.0.0.1:5001/invocations \
       }'
 
 ```
-
 ----
 
+**Option 2 : Using Fast API**
 
+```
+export MLFLOW_TRACKING_URI=http://127.0.0.1:8080
+```
+
+```
+uvicorn fast_app:app --host 127.0.0.1 --port 5002
+```
+
+```
+curl -X POST "http://127.0.0.1:5002/predict-co2-emission" \
+  -H "Content-Type: application/json" \
+  --data '{"inputs": [{"ENGINESIZE": 2.0}, {"ENGINESIZE": 3.0}, {"ENGINESIZE": 4.0}]}'
+```
 
 ----
 
@@ -75,7 +85,7 @@ curl -X POST http://127.0.0.1:5001/invocations \
 uv init uni_multi_model
 cd uni_multi_model
 
-uv add matplotlib mlflow numpy pandas scikit-learn
+uv add matplotlib mlflow numpy pandas scikit-learn 'uvicorn[standard]' fastapi pydantic
 ```
 
 - Open VSCode
@@ -96,7 +106,7 @@ uv add --dev ipykernel
 
 uv run ipython kernel install --user --name=uni_multi_model
 
-uv add matplotlib mlflow numpy pandas scikit-learn
+uv add matplotlib mlflow numpy pandas scikit-learn 'uvicorn[standard]' fastapi pydantic
 ```
 - Open VSCode
 - Add folder uni_multi_model folder

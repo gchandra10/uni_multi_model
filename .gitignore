@@ -13,3 +13,5 @@ mlartifacts/
 uv.lock
 
 02-mlclient-demo.py
+mlflow.db
+xg-model.json

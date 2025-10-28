@@ -3,6 +3,7 @@ import time
 import pandas as pd
 import mlflow
 import mlflow.sklearn
+import mlflow.xgboost
 
 mlflow.set_tracking_uri("http://127.0.0.1:8080")
 
@@ -41,6 +42,42 @@ print("""
       
       sklearn loads slower because it eagerly unpacks and validates everything for you.
       """)
+
+
+
+print("----- UNIVARIATE MODEL USING XGBoost flavor -----")
+MODEL_URI = "models:/XGBoost_Regression_Model/1"
+
+start_load2 = time.time()
+xg_model = mlflow.xgboost.load_model(MODEL_URI)
+end_load2 = time.time()
+
+start_pred2 = time.time()
+xg_pred = xg_model.predict(X)
+end_pred2 = time.time()
+
+print(f"Prediction: {xg_pred}")
+print(f"Load time: {end_load2 - start_load2:.4f} sec")
+print(f"Predict time: {end_pred2 - start_pred2:.6f} sec\n")
+
+
+print("----- UNIVARIATE MODEL USING pyfunc flavor -----")
+start_load3 = time.time()
+pyfunc_model = mlflow.pyfunc.load_model(MODEL_URI)
+end_load3 = time.time()
+
+start_pred3 = time.time()
+pyfunc_pred = pyfunc_model.predict(X)
+end_pred3 = time.time()
+
+print(f"Prediction: {pyfunc_pred}")
+print(f"Load time: {end_load3 - start_load3:.4f} sec")
+print(f"Predict time: {end_pred3 - start_pred3:.6f} sec\n")
+
+
+
+
+
 
 # print("----- MULTIVARIATE MODEL -----")
 # # Load the registered model (version 1 in this case)

@@ -9,6 +9,7 @@ wheels/
 # Virtual environments
 .venv
 mlruns/
+mlartifacts/
 uv.lock
 
 02-mlclient-demo.py

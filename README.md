@@ -26,7 +26,7 @@ uv run python 01-lr-model.py
 **Compare sklearn vs pyfunc**
 
 ```
-uv run python 
+uv run python 03_load_test_model.py
 ```
 
 **Note:**

@@ -23,6 +23,12 @@ mlflow server --host 127.0.0.1 --port 8080 \
 uv run python 01-lr-model.py
 ```
 
+**Compare sklearn vs pyfunc**
+
+```
+uv run python 
+```
+
 **Note:**
 
 **Serve the Model**
@@ -56,6 +62,10 @@ curl -X POST http://127.0.0.1:5001/invocations \
       }'
 
 ```
+
+----
+
+
 
 ----
 

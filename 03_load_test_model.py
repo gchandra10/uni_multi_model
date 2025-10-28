@@ -36,6 +36,11 @@ print(f"Prediction: {pyfunc_pred}")
 print(f"Load time: {end_load1 - start_load1:.4f} sec")
 print(f"Predict time: {end_pred1 - start_pred1:.6f} sec\n")
 
+print("""
+      pyfunc loads faster because it’s lazy — it doesn’t unpack the whole model until it’s actually used.
+      
+      sklearn loads slower because it eagerly unpacks and validates everything for you.
+      """)
 
 # print("----- MULTIVARIATE MODEL -----")
 # # Load the registered model (version 1 in this case)

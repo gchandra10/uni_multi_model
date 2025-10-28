@@ -10,3 +10,5 @@ wheels/
 .venv
 mlruns/
 uv.lock
+
+02-mlclient-demo.py

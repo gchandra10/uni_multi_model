@@ -142,7 +142,7 @@ def main() -> None:
     with mlflow.start_run() as run:
         log_all_metrics(metrics)
         log_params()
-        log_pred_vs_actual_plot(y_test, y_pred)
+        #log_pred_vs_actual_plot(y_test, y_pred)
 
         model_info = log_model_and_tags(model, X_train, X_test)
 
